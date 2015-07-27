@@ -1,0 +1,8 @@
+<h1><%= @expenditure.name %></h1>
+<p>
+  Date: <%= @expenditure.purchase_date.to_date %><br>
+  Price: R<%= @expenditure.price %><br>
+  Quantity: <%= @expenditure.quantity %><br>
+</p>
+
+<%= link_to 'back', expenditures_path %>

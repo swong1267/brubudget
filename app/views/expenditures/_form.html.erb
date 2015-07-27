@@ -1,0 +1,21 @@
+<%= form_for @expenditure, :html => { :multipart => true } do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :purchase_date %><br>
+    <%= f.date_field :purchase_date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
