@@ -47,6 +47,7 @@ class ExpendituresController < ApplicationController
   end
 
   private
+    #before action method
     def check_user
       unless current_user == Expenditure.find(params[:id]).user
         flash[:error] = "Insufficient permissions"

@@ -37,6 +37,7 @@
         </td>
         <td>
           <% if current_user == expenditure.user %>
+            <!-- get rid of data confirm box -->
             <%= link_to 'Edit', edit_expenditure_path(expenditure), data: { confirm: "You cannot edit other's expenses" } %>
           <% end %>
         </td>
