@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<p id="error"><%= flash[:error] %></p>
+<%= render 'layouts/nav' %>
+<%= render 'layouts/alerts' %>
 
 <%= yield %>
 

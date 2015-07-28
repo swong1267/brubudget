@@ -19,23 +19,32 @@
   </tr>
 
   <% @expenditures.each do |expenditure| %>
-    <tr>
-      <td>
-        <%= expenditure.purchase_date.to_date %>
-      </td>
-      <td>
-        <%= expenditure.name %>
-      </td>
-      <td>
-        R<%= expenditure.price %>
-      </td>
-      <td>
-        <%= expenditure.quantity %>
-      </td>
-      <td>
-        <%= link_to 'Expand', expenditure_path(expenditure) %>
-      </td>
-  <% end %>
+      <tr>
+        <td>
+          <%= expenditure.purchase_date.to_date %>
+        </td>
+        <td>
+          <%= expenditure.name %>
+        </td>
+        <td>
+          R<%= expenditure.price %>
+        </td>
+        <td>
+          <%= expenditure.quantity %>
+        </td>
+        <td>
+          <%= link_to 'Expand', expenditure_path(expenditure) %>
+        </td>
+        <td>
+          <% if current_user == expenditure.user %>
+            <%= link_to 'Edit', edit_expenditure_path(expenditure), data: { confirm: "You cannot edit other's expenses" } %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Delete', expenditure_path(expenditure), method: :delete, data: { confirm: "Are you sure?" } %>
+          <!-- best way to protect edit and delete? can only show those by user, but how to do it this way?-->
+        </td>
+    <% end %>
 </table>
 
 <%= link_to 'Add Purchase', new_expenditure_path %>
